@@ -13,10 +13,15 @@ Note : in deployment file use redis service clusterip as REDIS_URL "redis://10.3
 image= tarunbhardwaj/flask-counter-app
 
 ##Adding autoscale and apache benchmark rate change##
+
 A) using below comand to change current status of autoscaler and update minium and maximum Replicas num
+
 (1)#kubectl edit hpa counter
+
 (2)#kubectl edit hpa redis
+
 B) Now we can check pods via below command
+
 #kubectl get pods
 
 
