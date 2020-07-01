@@ -1,4 +1,4 @@
-# filfilio-assignment
+## filfilio-assignment ##
 Step 1. create a GKE cluster for Application deployment 
 
 Step 2. setup a client machine and connect to GKE cluster for perform all action on cluster ( use service account json key which have rights to perform required tasks )
@@ -12,7 +12,13 @@ Step 5. create the counter application deployment file and expose as NodePort or
 Note : in deployment file use redis service clusterip as REDIS_URL "redis://10.36.5.118"
 image= tarunbhardwaj/flask-counter-app
 
-##Adding autoscale and apache benchmark rate change##
+#### Adding autoscale and apache benchmark rate change ####
+
+#kubectl get deployment
+
+#kubectl autoscale deployment counter --max 12 --min 5 --cpu-percent 50
+ 
+#kubectl autoscale deployment redis --max 12 --min 5 --cpu-percent 50
 
 A) using below comand to change current status of autoscaler and update minium and maximum Replicas num
 
@@ -23,7 +29,6 @@ A) using below comand to change current status of autoscaler and update minium a
 B) Now we can check pods via below command
 
 #kubectl get pods
-
 
 Step 6. now deploy the counter application and hit the loadbalancer ip with port "5000"
 
